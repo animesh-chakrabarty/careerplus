@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="h-[10%] flex items-center justify-between px-4 py-2 border-b-2 mt-2">
       <Link to="/" className="h-full ">
-        <img src={logo} alt="" className="h-[100%]"/>
+        <img src={logo} alt="" className="h-[100%]" />
       </Link>
       <div className="flex items-center gap-10 mx-5">
         <Link to="/bookmark" className="flex flex-col items-center">
