@@ -3,8 +3,8 @@ import SearchResult from "../components/SearchResult";
 
 const Home = () => {
   return (
-    <div className="h-[105%] py-2 px-4">
-      <p className="font-robotoSlab text-center text-5xl leading-[60px] font-[600] ">
+    <div className=" py-2 px-4 h-[97%] overflow-auto no-scrollbar">
+      <p className="font-robotoSlab text-center text-5xl leading-[60px] font-[600]">
         Find your dream job <br /> all major portals in one place , here at{" "}
         <br />{" "}
         <span className="text-7xl leading-[80px] blaugrana_gradient ">

@@ -7,6 +7,8 @@ export default {
         jost: ["Jost", "sans-serif"],
         robotoSlab: ["Roboto Slab", "serif"],
         satoshi: ["Satoshi", "sans-serif"],
+        notoSans: ["Noto Sans", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
     },
   },
