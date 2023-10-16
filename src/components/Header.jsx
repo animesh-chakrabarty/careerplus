@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="h-[10%] flex items-center justify-between px-4 py-2 border-b-2 mt-2">
-      <Link to="/" className="h-full ">
+    <div className="h-[6%] flex items-center justify-between px-4 border-b-2 mt-1 ">
+      <Link to="/" className="h-full pb-1">
         <img src={logo} alt="" className="h-[100%]" />
       </Link>
       <div className="flex items-center gap-10 mx-5">

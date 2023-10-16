@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBox = () => {
   return (
-    <div className="py-7">
+    <div className="py-4">
       <form action="" className="flex flex-col items-center">
         <div className="flex justify-center gap-4 mb-3">
           <input

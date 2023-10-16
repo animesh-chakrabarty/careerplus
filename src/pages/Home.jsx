@@ -3,7 +3,7 @@ import SearchResult from "../components/SearchResult";
 
 const Home = () => {
   return (
-    <div className="h-[105%] py-5 px-4">
+    <div className="h-[105%] py-2 px-4">
       <p className="font-robotoSlab text-center text-5xl leading-[60px] font-[600] ">
         Find your dream job <br /> all major portals in one place , here at{" "}
         <br />{" "}

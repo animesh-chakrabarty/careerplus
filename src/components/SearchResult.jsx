@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { data } from "../constants/data";
+import JobCard from "./JobCard";
 
 const SearchResult = () => {
-  return (
-    <div>SearchResult</div>
-  )
-}
+  console.log(data)
 
-export default SearchResult
+  return (
+    <div>
+      {data?.data?.map((jobDetails) => (
+        <div key={jobDetails?.job_id}>
+          <JobCard jobDetails={jobDetails} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default SearchResult;
