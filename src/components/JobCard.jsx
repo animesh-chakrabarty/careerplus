@@ -1,9 +1,11 @@
 import { ImLocation } from "react-icons/im";
 import Tag from "./Tag";
 
-const JobCard = ({ jobDetails }) => {
-  //   console.log(jobDetails);
+import { useDispatch } from "react-redux";
+import { setJobdetails } from "../redux/JobDetailsSlice";
 
+const JobCard = ({ jobDetails }) => {
+  const dispatch = useDispatch();
   const jobDetailsLocal = {
     jobTitle: jobDetails?.job_title,
     employerLogo: jobDetails?.employer_logo,
@@ -18,10 +20,18 @@ const JobCard = ({ jobDetails }) => {
     applyLink: jobDetails?.job_apply_link,
   };
 
-  console.log(jobDetailsLocal);
+  // console.log(jobDetailsLocal);
+
+  const handleClick = () => {
+    console.log("clicked");
+    dispatch(setJobdetails(jobDetails));
+  };
 
   return (
-    <div className=" border-2 w-[450px] rounded-xl px-4 py-4 font-lato cursor-pointer">
+    <div
+      className=" border-2 w-[450px] rounded-xl px-4 py-4 font-lato cursor-pointer"
+      onClick={handleClick}
+    >
       {/* 1.Head */}
       <div className="flex flex-col gap-3 mb-2">
         {/* 1.1.Job Title */}
