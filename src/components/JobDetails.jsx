@@ -82,7 +82,16 @@ const JobDetails = ({ jobDetails }) => {
             </div>
           </div>
         )}
-        {/* 2.3. Experience */}
+        {/* 2.3. JD */}
+        {jobDetails?.job_description && (
+          <div className="opacity-70 text-[16px]">
+            <p className="font-[600] text-[17px]">Job Description : </p>
+            {linesArray?.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        )}
+        {/* 2.4. Experience */}
         {jobDetails?.job_required_experience?.required_experience_in_months && (
           <div className="opacity-70 text-[16px]">
             <span className="font-[600] text-[17px]">Experience : </span>
@@ -93,17 +102,11 @@ const JobDetails = ({ jobDetails }) => {
             </span>
           </div>
         )}
-        {/* 2.4. Education */}
+        {/* 2.5. Education */}
 
-        {/* 2.5. JD */}
-        {jobDetails?.job_description && (
-          <div className="opacity-70 text-[16px]">
-            <p className="font-[600] text-[17px]">Job Description : </p>
-            {linesArray?.map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
-          </div>
-        )}
+        {/* 2.6. Estimated salary */}
+
+        {/* 2.7. Apply Link */}
       </div>
     </div>
   );
