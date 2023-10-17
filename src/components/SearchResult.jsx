@@ -2,13 +2,12 @@ import { data } from "../constants/data";
 import JobCard from "./JobCard";
 
 import { useSelector } from "react-redux";
+import JobDetails from "./JobDetails";
 
 const SearchResult = () => {
-  // console.log(data);
-  const jobDetailsTemp = useSelector(state=>state.jobDetails);
+  let jobDetails = useSelector((state) => state.jobDetails.data);
 
-  console.log("1")
-  console.log(jobDetailsTemp);
+  // console.log(jobDetails);
 
   return (
     <div className="flex h-full overflow-auto no-scrollbar">
@@ -22,9 +21,7 @@ const SearchResult = () => {
       </div>
       {/* right */}
       <div className="w-[65%] h-full  overflow-auto no-scrollbar">
-        <div className="h-[400px] bg-red-400"></div>
-        <div className="h-[400px] bg-black"></div>
-        <div className="h-[400px] bg-blue-400"></div>
+        <JobDetails jobDetails={jobDetails}/>
       </div>
     </div>
   );

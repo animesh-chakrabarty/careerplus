@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const JobDetailsSlice = createSlice({
   name: "jobDetails",
-  initialState: {},
+  initialState: {
+    data: {},
+  },
   reducers: {
     setJobdetails: (state, action) => {
-      //   console.log(action.payload);
-      state = action.payload;
-      console.log(state);
+      state.data = action.payload;
     },
   },
 });

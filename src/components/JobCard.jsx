@@ -1,8 +1,9 @@
-import { ImLocation } from "react-icons/im";
+import { TbLocationFilled } from "react-icons/tb";
 import Tag from "./Tag";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setJobdetails } from "../redux/JobDetailsSlice";
+import BlueTag from "./BlueTag";
 
 const JobCard = ({ jobDetails }) => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const JobCard = ({ jobDetails }) => {
     jobTitle: jobDetails?.job_title,
     employerLogo: jobDetails?.employer_logo,
     employerName: jobDetails?.employer_name,
+    publisher: jobDetails?.job_publisher,
     jobCity: jobDetails?.job_city,
     jobIsRemote: jobDetails?.job_is_remote,
     jobEmploymentTitle: jobDetails?.job_employment_type,
@@ -20,10 +22,7 @@ const JobCard = ({ jobDetails }) => {
     applyLink: jobDetails?.job_apply_link,
   };
 
-  // console.log(jobDetailsLocal);
-
   const handleClick = () => {
-    console.log("clicked");
     dispatch(setJobdetails(jobDetails));
   };
 
@@ -35,30 +34,42 @@ const JobCard = ({ jobDetails }) => {
       {/* 1.Head */}
       <div className="flex flex-col gap-3 mb-2">
         {/* 1.1.Job Title */}
-        <p className="font-extrabold text-[20px]">{jobDetailsLocal.jobTitle}</p>
+        <p className="font-extrabold text-[20px] opacity-75">
+          {jobDetailsLocal.jobTitle}
+        </p>
         {/* 1.2.Company Logo & Name */}
         <div className="flex items-center gap-4 w-full text-[18px]">
           {jobDetailsLocal.employerLogo && (
             <img
               src={jobDetailsLocal.employerLogo}
               alt=""
-              className="max-w-[30%]"
+              className="w-[15%]"
             />
           )}
-          <p>{jobDetailsLocal.employerName}</p>
+          <p className="opacity-75">{jobDetailsLocal.employerName}</p>
         </div>
-        {/* 1.3.Location */}
-        {jobDetailsLocal?.jobIsRemote ||
-          (jobDetailsLocal?.jobCity && (
-            <div className="flex items-center gap-1 text-[17px]">
-              <ImLocation />
-              <p>
-                {jobDetailsLocal.jobIsRemote
-                  ? "Remote"
-                  : jobDetailsLocal.jobCity}
-              </p>
-            </div>
-          ))}
+        {/* 1.3.Location & postedOn tag*/}
+        <div className="flex justify-between items-center">
+          <div>
+            {(jobDetailsLocal?.jobCity ||
+              jobDetailsLocal?.jobIsRemote ||
+              jobDetails?.job_state ||
+              jobDetails?.job_country) && (
+              <div className="flex items-center gap-1 text-[17px] opacity-75">
+                <TbLocationFilled />
+                <p>
+                  {jobDetailsLocal.jobIsRemote && "Remote  "}
+                  {jobDetails?.job_city ||
+                    jobDetails?.job_state ||
+                    jobDetails?.job_country}
+                </p>
+              </div>
+            )}
+          </div>
+          <div>
+            <BlueTag tagTitle={jobDetailsLocal?.publisher} />
+          </div>
+        </div>
       </div>
       <hr />
       {/* 2.Body */}
@@ -70,7 +81,7 @@ const JobCard = ({ jobDetails }) => {
         {/* 2.2.Skills */}
         {jobDetailsLocal.skills && (
           <div className="flex gap-2">
-            <span className="text-[17px]">Skills: </span>
+            <span className="text-[17px] opacity-75 font-[600]">Skills: </span>
             <div className="flex flex-wrap gap-2">
               {jobDetailsLocal.skills?.map((skill, i) => (
                 <div key={i}>
@@ -84,8 +95,8 @@ const JobCard = ({ jobDetails }) => {
         {/* 2.3.Experience */}
         {jobDetailsLocal.experience.required_experience_in_months && (
           <div className="text-[17px]">
-            <span>Experience : </span>
-            <span>
+            <span className="opacity-75 font-[600]">Experience : </span>
+            <span className="opacity-75">
               {jobDetailsLocal.experience.required_experience_in_months / 12}{" "}
               years
             </span>

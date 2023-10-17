@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const App = () => {
+
   return (
     <div className="h-[100vh] px-[10%] overflow-auto no-scrollbar font-satoshi tracking-wide">
       <Header />
