@@ -103,7 +103,15 @@ const JobDetails = ({ jobDetails }) => {
           </div>
         )}
         {/* 2.5. Education */}
+          {
+            jobDetails?.job_required_education?.degree_mentioned && <div>
+              <span>Education : </span>
+              <span>{
+                  
 
+                }</span>
+            </div>
+          }
         {/* 2.6. Estimated salary */}
 
         {/* 2.7. Apply Link */}
