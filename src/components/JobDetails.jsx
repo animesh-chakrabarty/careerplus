@@ -14,7 +14,7 @@ const JobDetails = ({ jobDetails }) => {
   let linesArray = lines?.filter((line, i) => {
     return i % 2 == 0;
   });
-  console.log(linesArray);
+  // console.log(linesArray);
 
   return (
     <div className="w-full border-2 py-3 px-4 rounded-xl font-lato">

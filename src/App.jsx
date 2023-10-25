@@ -5,6 +5,7 @@ import Bookmark from "./pages/Bookmark";
 import Applied from "./pages/Applied";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import JobDetailsPage from "./pages/JobDetailsPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/bookmark" element={<Bookmark />} />
           <Route path="/applied" element={<Applied />} />
+          <Route path="/jobDetails/:jobId" element={<JobDetailsPage />} />
         </Routes>
       </div>
       <Footer />

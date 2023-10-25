@@ -4,9 +4,14 @@ import Tag from "./Tag";
 import { useDispatch, useSelector } from "react-redux";
 import { setJobdetails } from "../redux/JobDetailsSlice";
 import BlueTag from "./BlueTag";
+import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ jobDetails }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // console.log(jobDetails);
+
   const jobDetailsLocal = {
     jobTitle: jobDetails?.job_title,
     employerLogo: jobDetails?.employer_logo,
@@ -24,6 +29,9 @@ const JobCard = ({ jobDetails }) => {
 
   const handleClick = () => {
     dispatch(setJobdetails(jobDetails));
+    const windowWidth = window.innerWidth;
+    // console.log(window.innerWidth);
+    windowWidth < 768 && navigate(`/jobDetails/${jobDetails?.job_id}`);
   };
 
   return (

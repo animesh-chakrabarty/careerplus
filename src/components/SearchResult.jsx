@@ -10,9 +10,9 @@ const SearchResult = () => {
   // console.log(jobDetails);
 
   return (
-    <div className="flex h-full overflow-auto no-scrollbar">
+    <div className="flex h-full overflow-auto no-scrollbar ">
       {/* left */}
-      <div className=" w-[35%] max-xl:w-[45%] h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3 ">
+      <div className=" w-[35%] max-xl:w-[45%] max-md:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
         {data?.data?.map((jobDetails) => (
           <div key={jobDetails?.job_id}>
             <JobCard jobDetails={jobDetails} />
@@ -20,7 +20,7 @@ const SearchResult = () => {
         ))}
       </div>
       {/* right */}
-      <div className="w-[60%]  max-xl:w-[50%]  h-full  overflow-auto no-scrollbar">
+      <div className="w-[60%]  max-xl:w-[50%] max-md:hidden h-full  overflow-auto no-scrollbar">
         <JobDetails jobDetails={jobDetails} />
       </div>
     </div>
