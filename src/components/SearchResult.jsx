@@ -21,7 +21,7 @@ const SearchResult = () => {
       </div>
       {/* right */}
       <div className="w-[60%]  max-xl:w-[50%] max-md:hidden h-full  overflow-auto no-scrollbar">
-        <JobDetails jobDetails={jobDetails} />
+        <JobDetails/>
       </div>
     </div>
   );

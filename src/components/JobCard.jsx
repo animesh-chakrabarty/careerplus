@@ -1,10 +1,11 @@
 import { TbLocationFilled } from "react-icons/tb";
-import Tag from "./Tag";
+import Tag from "./Tag/GreyTag";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setJobdetails } from "../redux/JobDetailsSlice";
-import BlueTag from "./BlueTag";
+import BlueTag from "./Tag/BlueTag";
 import { useNavigate } from "react-router-dom";
+import GreyTag from "./Tag/GreyTag";
 
 const JobCard = ({ jobDetails }) => {
   const dispatch = useDispatch();
@@ -84,7 +85,7 @@ const JobCard = ({ jobDetails }) => {
       <div className="mt-2 flex flex-col gap-2">
         {/* 2.1.Employment Type */}
         <div className="">
-          <Tag tagTitle={jobDetailsLocal.jobEmploymentTitle} />
+          <GreyTag tagTitle={jobDetailsLocal.jobEmploymentTitle} />
         </div>
         {/* 2.2.Skills */}
         {jobDetailsLocal.skills && (
@@ -93,7 +94,7 @@ const JobCard = ({ jobDetails }) => {
             <div className="flex flex-wrap gap-2">
               {jobDetailsLocal.skills?.map((skill, i) => (
                 <div key={i}>
-                  <Tag tagTitle={skill} />
+                  <GreyTag tagTitle={skill} />
                 </div>
               ))}
             </div>

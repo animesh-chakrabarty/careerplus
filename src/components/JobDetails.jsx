@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { TbLocationFilled } from "react-icons/tb";
-import Tag from "./Tag";
-import BlueTag from "./BlueTag";
+import BlueTag from "./Tag/BlueTag";
+import GreyTag from "./Tag/GreyTag";
 
-const JobDetails = ({ jobDetails }) => {
+const JobDetails = () => {
+  const jobDetails = useSelector((state) => state.jobDetails.data);
   //   console.log(jobDetails);
   const handleClick = () => {
     jobDetails?.employer_website && window.open(jobDetails?.employer_website);
@@ -67,7 +69,7 @@ const JobDetails = ({ jobDetails }) => {
       <div className="mt-3 flex flex-col gap-3">
         {/* 2.1. Employment Type */}
         <div className="">
-          <Tag tagTitle={jobDetails.job_employment_type} />
+          <GreyTag tagTitle={jobDetails.job_employment_type} />
         </div>
         {/* 2.2. Skills*/}
         {jobDetails?.job_required_skills && (
@@ -76,7 +78,7 @@ const JobDetails = ({ jobDetails }) => {
             <div className="flex flex-wrap gap-2">
               {jobDetails?.job_required_skills?.map((skill, i) => (
                 <div key={i}>
-                  <Tag tagTitle={skill} />
+                  <GreyTag tagTitle={skill} />
                 </div>
               ))}
             </div>
@@ -103,15 +105,12 @@ const JobDetails = ({ jobDetails }) => {
           </div>
         )}
         {/* 2.5. Education */}
-          {
-            jobDetails?.job_required_education?.degree_mentioned && <div>
-              <span>Education : </span>
-              <span>{
-                  
-
-                }</span>
-            </div>
-          }
+        {jobDetails?.job_required_education?.degree_mentioned && (
+          <div>
+            <span>Education : </span>
+            <span>{}</span>
+          </div>
+        )}
         {/* 2.6. Estimated salary */}
 
         {/* 2.7. Apply Link */}
