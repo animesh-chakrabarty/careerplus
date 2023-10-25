@@ -8,9 +8,9 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="h-[100vh] px-[10%] max-2xl:px-[5%] overflow-hidden font-satoshi tracking-wide">
+    <div className="h-[100vh] px-[10%] max-xl:px-[5%] max-lg:px-[1%] overflow-hidden font-satoshi tracking-wide">
       <Header />
-      <div className="h-full mx-[5%] overflow-auto no-scrollbar ">
+      <div className="h-full mx-[5%] max-xl:mx-[0%] max-lg:mx-[1%] overflow-auto no-scrollbar ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bookmark" element={<Bookmark />} />

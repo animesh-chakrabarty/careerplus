@@ -10,6 +10,11 @@ export default {
         notoSans: ["Noto Sans", "sans-serif"],
         lato: ["Lato", "sans-serif"],
       },
+      screens: {
+        xl: "1536px",
+        lg: "1025px",
+        md: "768px",
+      },
     },
   },
   plugins: [],

@@ -10,7 +10,7 @@ const SearchResult = () => {
   // console.log(jobDetails);
 
   return (
-    <div className="flex h-full overflow-auto no-scrollbar gap-5 max-2xl:gap-2">
+    <div className="flex h-full overflow-auto no-scrollbar">
       {/* left */}
       <div className=" w-[35%] max-xl:w-[45%] h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3 ">
         {data?.data?.map((jobDetails) => (
