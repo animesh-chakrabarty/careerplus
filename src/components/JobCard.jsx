@@ -1,4 +1,7 @@
 import { TbLocationFilled } from "react-icons/tb";
+import { BsFillBookmarkFill } from "react-icons/bs";
+import { MdOutlineDownloadDone } from "react-icons/md";
+
 import Tag from "./Tag/GreyTag";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -35,6 +38,36 @@ const JobCard = ({ jobDetails }) => {
     windowWidth < 768 && navigate(`/jobDetails/${jobDetails?.job_id}`);
   };
 
+  const handleBookMarkClick = () => {
+    const dataExists = localStorage.getItem("careerPlus_bookmarked");
+
+    // console.log(JSON.parse(dataExists));
+
+    if (dataExists) {
+      const temp = JSON.parse(dataExists);
+      const jobIds = temp?.jobIds;
+      // console.log(temp?.jobIds);
+      const jobIdsUpdated = [...jobIds, jobDetails?.job_id];
+      const updatedTemp = {
+        jobIds: jobIdsUpdated,
+      };
+      localStorage.setItem(
+        "careerPlus_bookmarked",
+        JSON.stringify(updatedTemp)
+      );
+      // console.log(jobIdsUpdated);
+      // console.log(updatedTemp);
+    } else {
+      const temp = {
+        jobIds: [jobDetails?.job_id],
+      };
+      localStorage.setItem("careerPlus_bookmarked", JSON.stringify(temp));
+    }
+
+    const dataExists2 = localStorage.getItem("careerPlus_bookmarked");
+    console.log(JSON.parse(dataExists2));
+  };
+
   return (
     <div
       className=" border-2 w-[100%] rounded-xl px-4 py-4 font-lato cursor-pointer"
@@ -43,9 +76,20 @@ const JobCard = ({ jobDetails }) => {
       {/* 1.Head */}
       <div className="flex flex-col gap-3 mb-2">
         {/* 1.1.Job Title */}
-        <p className="font-extrabold text-[20px] opacity-75">
-          {jobDetailsLocal.jobTitle}
-        </p>
+        <div className="font-extrabold text-[20px] opacity-75 flex justify-between items-center">
+          {/* 1.1.1 Job Title */}
+          <p>{jobDetailsLocal.jobTitle}</p>
+          {/* 1.1.2 Save & Applied Button */}
+          <div className="flex gap-3 ">
+            <BsFillBookmarkFill
+              onClick={(e) => {
+                e.stopPropagation();
+                handleBookMarkClick();
+              }}
+            />
+            <MdOutlineDownloadDone size={25} />
+          </div>
+        </div>
         {/* 1.2.Company Logo & Name */}
         <div className="flex items-center gap-4 w-full text-[18px]">
           {jobDetailsLocal.employerLogo && (
