@@ -8,7 +8,7 @@ const BookmarkedJobSlice = createSlice({
   reducers: {
     setBookmark: (state, action) => {
       // const updatedData = [...state.data, action.payload];
-      state.data = action.payload.jobIds;
+      state.data = action.payload.bookmarkedJobs;
     },
   },
 });

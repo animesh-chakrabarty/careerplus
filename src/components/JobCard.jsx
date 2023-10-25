@@ -38,6 +38,9 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
     windowWidth < 768 && navigate(`/jobDetails/${jobDetails?.job_id}`);
   };
 
+  // const dataExists34 = localStorage.getItem("careerPlus_bookmarked");
+  // console.log(JSON.parse(dataExists34));
+
   const handleBookMarkClick = () => {
     const dataExists = localStorage.getItem("careerPlus_bookmarked");
 
@@ -46,15 +49,15 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
       // 1. If this job is already bookmarked then remove it from bookmark list
       // 2. If it is not bookmarked , then add it to bookmark list
       const temp = JSON.parse(dataExists);
-      let jobIds = temp?.jobIds;
+      let bookmarkedJobs = temp?.bookmarkedJobs;
 
       if (isBookmarked) {
         // If job is already bookmarked , remove it from list
-        let jobIdsUpdated1 = jobIds.filter(
-          (jobId) => jobId !== jobDetails?.job_id
+        let jobDetailsUpdated1 = bookmarkedJobs.filter(
+          (jobDetailsTemp) => jobDetailsTemp.job_id !== jobDetails?.job_id
         );
         const updatedTemp1 = {
-          jobIds: jobIdsUpdated1,
+          bookmarkedJobs: jobDetailsUpdated1,
         };
         localStorage.setItem(
           "careerPlus_bookmarked",
@@ -62,9 +65,9 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
         );
       } else {
         // If job is not bookmarked , add it to the list
-        let jobIdsUpdated2 = [...jobIds, jobDetails?.job_id];
+        let jobDetailsUpdated2 = [...bookmarkedJobs, jobDetails];
         const updatedTemp2 = {
-          jobIds: jobIdsUpdated2,
+          bookmarkedJobs: jobDetailsUpdated2,
         };
         localStorage.setItem(
           "careerPlus_bookmarked",
@@ -73,17 +76,17 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
       }
     } else {
       const temp = {
-        jobIds: [jobDetails?.job_id],
+        bookmarkedJobs: [jobDetails],
       };
       localStorage.setItem("careerPlus_bookmarked", JSON.stringify(temp));
     }
 
     const dataExists2 = localStorage.getItem("careerPlus_bookmarked");
 
-    // console.log(JSON.parse(dataExists2));
+    console.log(JSON.parse(dataExists2));
 
     dispatch(setBookmark(JSON.parse(dataExists2)));
-    // console.log(JSON.parse(dataExists2));
+    console.log(JSON.parse(dataExists2));
   };
 
   return (
@@ -165,7 +168,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
         )}
 
         {/* 2.3.Experience */}
-        {jobDetailsLocal.experience.required_experience_in_months && (
+        {jobDetailsLocal?.experience?.required_experience_in_months && (
           <div className="text-[17px]">
             <span className="opacity-75 font-[600]">Experience : </span>
             <span className="opacity-75">

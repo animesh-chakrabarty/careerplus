@@ -16,9 +16,11 @@ const SearchResult = () => {
       {/* left */}
       <div className=" w-[35%] max-xl:w-[45%] max-md:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
         {data?.data?.map((jobDetails) => {
-          const isBookmarked = bookMarkedJobs.includes(jobDetails?.job_id);
+          const isBookmarked = bookMarkedJobs.find(
+            (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
+          );
           return (
-            <div key={jobDetails?.job_id}>
+            <div key={jobDetails?.jobDetails?.job_id}>
               <JobCard jobDetails={jobDetails} isBookmarked={isBookmarked} />
             </div>
           );
