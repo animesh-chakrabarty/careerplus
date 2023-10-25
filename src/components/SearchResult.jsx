@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import JobDetails from "./JobDetails";
 
 const SearchResult = () => {
-  let jobDetails = useSelector((state) => state.jobDetails.data);
+  let bookMarkedJobs = useSelector((state) => state.bookmarkedJobs.data);
+
+  console.log(bookMarkedJobs);
 
   // console.log(jobDetails);
 
@@ -13,15 +15,18 @@ const SearchResult = () => {
     <div className="flex h-full overflow-auto no-scrollbar ">
       {/* left */}
       <div className=" w-[35%] max-xl:w-[45%] max-md:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
-        {data?.data?.map((jobDetails) => (
-          <div key={jobDetails?.job_id}>
-            <JobCard jobDetails={jobDetails} />
-          </div>
-        ))}
+        {data?.data?.map((jobDetails) => {
+          const isBookmarked = bookMarkedJobs.includes(jobDetails?.job_id);
+          return (
+            <div key={jobDetails?.job_id}>
+              <JobCard jobDetails={jobDetails} isBookmarked={isBookmarked} />
+            </div>
+          );
+        })}
       </div>
       {/* right */}
       <div className="w-[60%]  max-xl:w-[50%] max-md:hidden h-full  overflow-auto no-scrollbar">
-        <JobDetails/>
+        <JobDetails />
       </div>
     </div>
   );

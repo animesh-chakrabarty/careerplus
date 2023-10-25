@@ -9,8 +9,9 @@ import { setJobdetails } from "../redux/JobDetailsSlice";
 import BlueTag from "./Tag/BlueTag";
 import { useNavigate } from "react-router-dom";
 import GreyTag from "./Tag/GreyTag";
+import { setBookmark } from "../redux/BookmarkedJobSlice";
 
-const JobCard = ({ jobDetails }) => {
+const JobCard = ({ jobDetails, isBookmarked }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,29 +35,38 @@ const JobCard = ({ jobDetails }) => {
   const handleClick = () => {
     dispatch(setJobdetails(jobDetails));
     const windowWidth = window.innerWidth;
-    // console.log(window.innerWidth);
     windowWidth < 768 && navigate(`/jobDetails/${jobDetails?.job_id}`);
   };
 
   const handleBookMarkClick = () => {
     const dataExists = localStorage.getItem("careerPlus_bookmarked");
 
-    // console.log(JSON.parse(dataExists));
-
     if (dataExists) {
       const temp = JSON.parse(dataExists);
-      const jobIds = temp?.jobIds;
-      // console.log(temp?.jobIds);
-      const jobIdsUpdated = [...jobIds, jobDetails?.job_id];
-      const updatedTemp = {
-        jobIds: jobIdsUpdated,
-      };
-      localStorage.setItem(
-        "careerPlus_bookmarked",
-        JSON.stringify(updatedTemp)
-      );
-      // console.log(jobIdsUpdated);
-      // console.log(updatedTemp);
+      let jobIds = temp?.jobIds;
+      if (isBookmarked) {
+        // If job is already bookmarked , remove it from list
+        let jobIdsUpdated1 = jobIds.filter(
+          (jobId) => jobId !== jobDetails?.job_id
+        );
+        const updatedTemp1 = {
+          jobIds: jobIdsUpdated1,
+        };
+        localStorage.setItem(
+          "careerPlus_bookmarked",
+          JSON.stringify(updatedTemp1)
+        );
+      } else {
+        // If job is not bookmarked , add it to the list
+        let jobIdsUpdated2 = [...jobIds, jobDetails?.job_id];
+        const updatedTemp2 = {
+          jobIds: jobIdsUpdated2,
+        };
+        localStorage.setItem(
+          "careerPlus_bookmarked",
+          JSON.stringify(updatedTemp2)
+        );
+      }
     } else {
       const temp = {
         jobIds: [jobDetails?.job_id],
@@ -65,7 +75,11 @@ const JobCard = ({ jobDetails }) => {
     }
 
     const dataExists2 = localStorage.getItem("careerPlus_bookmarked");
-    console.log(JSON.parse(dataExists2));
+
+    // console.log(JSON.parse(dataExists2));
+
+    dispatch(setBookmark(JSON.parse(dataExists2)));
+    // console.log(JSON.parse(dataExists2));
   };
 
   return (
@@ -86,6 +100,7 @@ const JobCard = ({ jobDetails }) => {
                 e.stopPropagation();
                 handleBookMarkClick();
               }}
+              className={`${isBookmarked && "text-blue-500"} `}
             />
             <MdOutlineDownloadDone size={25} />
           </div>
