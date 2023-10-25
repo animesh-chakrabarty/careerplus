@@ -42,8 +42,12 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
     const dataExists = localStorage.getItem("careerPlus_bookmarked");
 
     if (dataExists) {
+      // If user has already bookmarked jobs before ->
+      // 1. If this job is already bookmarked then remove it from bookmark list
+      // 2. If it is not bookmarked , then add it to bookmark list
       const temp = JSON.parse(dataExists);
       let jobIds = temp?.jobIds;
+
       if (isBookmarked) {
         // If job is already bookmarked , remove it from list
         let jobIdsUpdated1 = jobIds.filter(
@@ -100,7 +104,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
                 e.stopPropagation();
                 handleBookMarkClick();
               }}
-              className={`${isBookmarked && "text-blue-500"} `}
+              className={`${isBookmarked && "text-green-600"} `}
             />
             <MdOutlineDownloadDone size={25} />
           </div>
