@@ -107,7 +107,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
                 e.stopPropagation();
                 handleBookMarkClick();
               }}
-              className={`${isBookmarked && "text-green-600"} `}
+              className={`${isBookmarked && "text-[#0071BD]"} `}
             />
             <MdOutlineDownloadDone size={25} />
           </div>

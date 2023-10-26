@@ -14,7 +14,7 @@ const SearchResult = () => {
   return (
     <div className="flex h-full overflow-auto no-scrollbar ">
       {/* left */}
-      <div className=" w-[35%] max-xl:w-[45%] max-md:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
+      <div className=" w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
         {data?.data?.map((jobDetails) => {
           const isBookmarked = bookMarkedJobs.find(
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
@@ -27,7 +27,7 @@ const SearchResult = () => {
         })}
       </div>
       {/* right */}
-      <div className="w-[60%]  max-xl:w-[50%] max-md:hidden h-full  overflow-auto no-scrollbar">
+      <div className="w-[60%]  max-xl:w-[50%] max-lg:hidden h-full  overflow-auto no-scrollbar">
         <JobDetails />
       </div>
     </div>
