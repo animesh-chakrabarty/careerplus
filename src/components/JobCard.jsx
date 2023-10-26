@@ -148,7 +148,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
       </div>
       <hr />
       {/* 2.Body */}
-      <div className="mt-2 flex flex-col gap-2">
+      <div className="mt-2 flex flex-col gap-2 max-md:gap-1">
         {/* 2.1.Employment Type */}
         <div className="">
           <GreyTag tagTitle={jobDetailsLocal.jobEmploymentTitle} />
