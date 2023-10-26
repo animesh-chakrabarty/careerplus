@@ -95,7 +95,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
       onClick={handleClick}
     >
       {/* 1.Head */}
-      <div className="flex flex-col gap-3 mb-2">
+      <div className="flex flex-col gap-3 max-md:gap-1 mb-2">
         {/* 1.1.Job Title */}
         <div className="font-extrabold text-[20px] opacity-75 flex justify-between items-center">
           {/* 1.1.1 Job Title */}
