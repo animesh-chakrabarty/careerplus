@@ -23,7 +23,7 @@ const Header = () => {
         </Link>
       </div>
       {/* Github Button for below md */}
-      <div className="pb-1">
+      <div className="pb-1 md:hidden">
         <SiGithub
           onClick={() => {
             window.open(

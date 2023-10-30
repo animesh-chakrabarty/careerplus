@@ -22,3 +22,7 @@
   .blaugrana_gradient{
     @apply bg-gradient-to-r from-[#ED1B24]  to-[#0071BD] bg-clip-text text-transparent;
   }
+
+  .blaugrana_gradient_bg{
+    @apply bg-gradient-to-r from-[#ED1B24]  to-[#0071BD] ;
+  }
