@@ -10,7 +10,7 @@ const Footer = () => {
         <p>Made by Animesh</p>
         <ImGithub size={20} color="white" cursor="pointer" />
       </div>
-      <div className="md:hidden fixed bottom-0 h-[5%] w-full flex justify-around bg-[#2f2f2f] py-2 rounded-t-2xl">
+      <div className="md:hidden fixed bottom-0 h-[6%] w-full flex justify-around bg-[#2f2f2f] py-2 rounded-t-2xl">
         <Link to="/bookmark" className="flex flex-col items-center">
           <BsFillBookmarkFill size={27} className="text-[25px]" color="white"/>
           {/* <p>Saved</p> */}
