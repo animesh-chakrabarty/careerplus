@@ -97,7 +97,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
       {/* 1.Head */}
       <div className="flex flex-col gap-3 max-md:gap-1 mb-2">
         {/* 1.1.Job Title */}
-        <div className="font-extrabold text-[20px] opacity-75 flex justify-between items-center">
+        <div className="font-extrabold text-[20px] max-lg:text-[18px] opacity-75 flex justify-between items-center">
           {/* 1.1.1 Job Title */}
           <p>{jobDetailsLocal.jobTitle}</p>
           {/* 1.1.2 Save & Applied Button */}
@@ -113,7 +113,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
           </div>
         </div>
         {/* 1.2.Company Logo & Name */}
-        <div className="flex items-center gap-4 w-full text-[18px]">
+        <div className="flex items-center gap-4 w-full text-[18px] max-lg:text-[16px]">
           {jobDetailsLocal.employerLogo && (
             <img
               src={jobDetailsLocal.employerLogo}
@@ -121,7 +121,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
               className="w-[15%]"
             />
           )}
-          <p className="opacity-75 max-lg:text-[16px]">{jobDetailsLocal.employerName}</p>
+          <p className="opacity-75 ">{jobDetailsLocal.employerName}</p>
         </div>
         {/* 1.3.Location & postedOn tag*/}
         <div className="flex justify-between items-center">
@@ -130,7 +130,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
               jobDetailsLocal?.jobIsRemote ||
               jobDetails?.job_state ||
               jobDetails?.job_country) && (
-              <div className="flex items-center gap-1 text-[17px] opacity-75">
+              <div className="flex items-center gap-1 text-[16px] max-lg:text-[14px] opacity-75">
                 <TbLocationFilled />
                 <p>
                   {jobDetailsLocal.jobIsRemote && "Remote  "}
