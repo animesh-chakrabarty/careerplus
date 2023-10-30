@@ -10,14 +10,14 @@ const Footer = () => {
         <p>Made by Animesh</p>
         <ImGithub size={20} color="white" cursor="pointer" />
       </div>
-      <div className="md:hidden fixed bottom-0 h-[6%] w-full flex justify-around bg-[black] py-2 rounded-t-2xl">
+      <div className="md:hidden fixed bottom-0 h-[8%] w-full flex justify-around bg-[black] py-2 rounded-t-2xl">
         <Link to="/bookmark" className="flex flex-col items-center">
           <BsFillBookmarkFill size={27} className="text-[25px]" color="white"/>
-          {/* <p>Saved</p> */}
+          <p className="text-white text-[14px]">Saved</p>
         </Link>
         <Link to="/applied" className="flex flex-col items-center">
           <MdOutlineDownloadDone size={50} color="white"/>
-          {/* <p>Applied</p> */}
+          <p className="text-white text-[14px]">Applied</p>
         </Link>
       </div>
     </div>
