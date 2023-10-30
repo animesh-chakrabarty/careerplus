@@ -16,7 +16,7 @@ const SearchBox = () => {
             className="px-10 py-2 rounded-xl outline-none border-2"
           />
         </div>
-        <button className="bg-[#0071BD] px-4 py-2 rounded-xl text-white font-[600] text-[20px] ">
+        <button className="bg-[#0071BD] px-4 py-2 rounded-xl text-white font-[600] text-[20px] max-md:text-[18px]">
           Find Job
         </button>
       </form>
