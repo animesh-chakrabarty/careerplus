@@ -121,7 +121,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
               className="w-[15%]"
             />
           )}
-          <p className="opacity-75">{jobDetailsLocal.employerName}</p>
+          <p className="opacity-75 max-lg:text-[16px]">{jobDetailsLocal.employerName}</p>
         </div>
         {/* 1.3.Location & postedOn tag*/}
         <div className="flex justify-between items-center">
