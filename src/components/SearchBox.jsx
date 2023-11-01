@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLazyFetchJobsQuery } from "../redux/JSearchAPI";
+import { useDispatch } from "react-redux";
+import { setJobList } from "../redux/JobListSlice";
 
 const SearchBox = () => {
+  const dispatch = useDispatch();
+  const [jobRole, setJobRole] = useState("");
+  const [location, setLocation] = useState("");
+
+  const [triggerQuery, res] = useLazyFetchJobsQuery();
+  console.log(res?.data?.data);
+
+  res && dispatch(setJobList(res?.data?.data));
+
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    console.log(jobRole);
+    console.log(location);
+
+    const query = jobRole + location;
+    console.log(query);
+    triggerQuery(query);
+  };
+
   return (
     <div className="py-4">
-      <form action="" className="flex flex-col  items-center ">
+      <form
+        action="submit"
+        className="flex flex-col  items-center "
+        onSubmit={HandleSubmit}
+      >
         <div className="flex justify-center gap-4 mb-3 max-md:flex-col max-md:w-[70%] max-md:gap-2 ">
           <input
             type="text"
+            value={jobRole}
+            onChange={(e) => setJobRole(e.target.value)}
             placeholder="Job Title , Keyword..."
             className="px-10 py-2 rounded-xl outline-none border-2 max-md:w-full"
           />
           <input
             type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
             placeholder="Location..."
             className="px-10 py-2 rounded-xl outline-none border-2"
           />

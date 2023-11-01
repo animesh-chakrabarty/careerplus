@@ -6,6 +6,8 @@ import JobDetails from "./JobDetails";
 
 const SearchResult = () => {
   let bookMarkedJobs = useSelector((state) => state.bookmarkedJobs.data);
+  const jobList = useSelector((state) => state.jobList.data);
+  console.log(jobList)
 
   console.log(bookMarkedJobs);
 
@@ -14,13 +16,13 @@ const SearchResult = () => {
   return (
     <div className="flex h-full overflow-auto no-scrollbar ">
       {/* left */}
-      <div className="w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
-        {data?.data?.map((jobDetails) => {
+      <div className="w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3">
+        {jobList?.map((jobDetails) => {
           const isBookmarked = bookMarkedJobs.find(
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
           );
           return (
-            <div key={jobDetails?.jobDetails?.job_id}>
+            <div key={jobDetails?.job_id}>
               <JobCard jobDetails={jobDetails} isBookmarked={isBookmarked} />
             </div>
           );
