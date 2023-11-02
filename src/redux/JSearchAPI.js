@@ -22,6 +22,6 @@ const JSearchAPI = createApi({
   }),
 });
 
-export const { useLazyFetchJobsQuery } = JSearchAPI;
+export const { useFetchJobsQuery } = JSearchAPI;
 
 export default JSearchAPI;

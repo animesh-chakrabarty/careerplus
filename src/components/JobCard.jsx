@@ -114,13 +114,13 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
         </div>
         {/* 1.2.Company Logo & Name */}
         <div className="flex items-center gap-4 w-full text-[18px] max-md:text-[16px]">
-          {jobDetailsLocal.employerLogo && (
+          {/* {jobDetailsLocal.employerLogo && (
             <img
               src={jobDetailsLocal.employerLogo}
               alt=""
               className="w-[15%]"
             />
-          )}
+          )} */}
           <p className="opacity-75 ">{jobDetailsLocal.employerName}</p>
         </div>
         {/* 1.3.Location & postedOn tag*/}

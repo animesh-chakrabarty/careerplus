@@ -11,7 +11,7 @@ const Home = () => {
         </span>
       </p>
       <SearchBox />
-      <SearchResult />
+      {/* <SearchResult /> */}
     </div>
   );
 };

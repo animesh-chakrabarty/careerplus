@@ -1,26 +1,30 @@
 import React, { useState } from "react";
-import { useLazyFetchJobsQuery } from "../redux/JSearchAPI";
+// import { useLazyFetchJobsQuery } from "../redux/JSearchAPI";
 import { useDispatch } from "react-redux";
 import { setJobList } from "../redux/JobListSlice";
+import { useNavigate } from "react-router-dom";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [jobRole, setJobRole] = useState("");
   const [location, setLocation] = useState("");
 
-  const [triggerQuery, res] = useLazyFetchJobsQuery();
-  console.log(res?.data?.data);
+  // const [triggerQuery, res] = useLazyFetchJobsQuery();
+  // console.log(res?.data?.data);
 
-  res && dispatch(setJobList(res?.data?.data));
+  // res && dispatch(setJobList(res?.data?.data));
 
   const HandleSubmit = (e) => {
     e.preventDefault();
     console.log(jobRole);
     console.log(location);
 
-    const query = jobRole + location;
-    console.log(query);
-    triggerQuery(query);
+    // const query = jobRole + " " + location;
+    navigate(`/jobs/${jobRole}/${location}`);
+
+    // console.log(query);
+    // triggerQuery(query);
   };
 
   return (

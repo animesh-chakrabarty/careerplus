@@ -11,8 +11,6 @@ const SearchResult = () => {
 
   console.log(bookMarkedJobs);
 
-  // console.log(jobDetails);
-
   return (
     <div className="flex h-full overflow-auto no-scrollbar ">
       {/* left */}

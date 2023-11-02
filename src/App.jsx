@@ -9,6 +9,7 @@ import JobDetailsPage from "./pages/JobDetailsPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setBookmark } from "./redux/BookmarkedJobSlice";
+import SearchResultPage from "./pages/SearchResultPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/bookmark" element={<Bookmark />} />
           <Route path="/applied" element={<Applied />} />
           <Route path="/jobDetails/:jobId" element={<JobDetailsPage />} />
+          <Route path="/jobs/:jobRole/:location" element={<SearchResultPage/>}/>
         </Routes>
       </div>
       <Footer />
