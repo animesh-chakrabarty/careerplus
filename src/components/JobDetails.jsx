@@ -18,6 +18,10 @@ const JobDetails = () => {
   });
   // console.log(linesArray);
 
+  const handleJobApplyClick = () => {
+    window.open(jobDetails?.apply_options[0]?.apply_link);
+  };
+
   return (
     <div className="w-full border-2 py-3 px-4 rounded-xl font-lato">
       {/* 1. Head */}
@@ -59,8 +63,8 @@ const JobDetails = () => {
               </div>
             )}
           </div>
-          <div>
-            <BlueTag tagTitle={jobDetails?.job_publisher} />
+          <div onClick={handleJobApplyClick} className="cursor-pointer">
+            <BlueTag tagTitle={"Apply Now"}  />
           </div>
         </div>
       </div>

@@ -14,6 +14,8 @@ import { setBookmark } from "../redux/BookmarkedJobSlice";
 const JobCard = ({ jobDetails, isBookmarked }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  console.log(jobDetails)
 
   // console.log(jobDetails);
 
