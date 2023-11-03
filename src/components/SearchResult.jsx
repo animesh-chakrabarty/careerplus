@@ -12,9 +12,9 @@ const SearchResult = () => {
   console.log(bookMarkedJobs);
 
   return (
-    <div className="flex h-full overflow-auto no-scrollbar ">
+    <div className="flex h-full md:overflow-auto no-scrollbar ">
       {/* left */}
-      <div className="w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3">
+      <div className="w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 md:overflow-auto no-scrollbar flex flex-col gap-3">
         {jobList?.map((jobDetails) => {
           const isBookmarked = bookMarkedJobs.find(
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id

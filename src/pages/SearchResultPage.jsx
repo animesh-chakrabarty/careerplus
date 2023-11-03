@@ -16,13 +16,13 @@ const SearchResultPage = () => {
   data && dispatch(setJobList(data.data));
   //   console.log(searchTerm)
   return (
-    <div className="h-[75%]  ">
+    <div className="max-md:h-[87%] h-[90%] overflow-auto no-scrollbar">
       {/* 1.Top Div */}
       <div>
         <SearchBox />
       </div>
       {/* 2.Bottom Div */}
-      <div className="h-[100%] overflow-auto">
+      <div className="h-[100%] ">
         <SearchResult />
       </div>
     </div>
