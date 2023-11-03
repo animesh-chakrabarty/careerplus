@@ -1,6 +1,6 @@
 import logo from "../assets/logo.png";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import { MdOutlineDownloadDone } from "react-icons/md";
+import { AiOutlineFileDone } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import { SiGithub } from "react-icons/si";
@@ -18,7 +18,7 @@ const Header = () => {
           <p>Saved</p>
         </Link>
         <Link to="/applied" className="flex flex-col items-center">
-          <MdOutlineDownloadDone size={30} />
+          <AiOutlineFileDone size={30} />
           <p>Applied</p>
         </Link>
       </div>

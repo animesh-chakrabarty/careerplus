@@ -1,6 +1,6 @@
 import { TbLocationFilled } from "react-icons/tb";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import { MdOutlineDownloadDone } from "react-icons/md";
+import { AiOutlineFileDone } from "react-icons/ai";
 
 import Tag from "./Tag/GreyTag";
 
@@ -111,7 +111,7 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
               }}
               className={`${isBookmarked && "text-[#0071BD]"} `}
             />
-            <MdOutlineDownloadDone size={25} />
+            <AiOutlineFileDone size={25} />
           </div>
         </div>
         {/* 1.2.Company Logo & Name */}
