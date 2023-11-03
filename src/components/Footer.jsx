@@ -11,13 +11,13 @@ const Footer = () => {
         <ImGithub size={20} color="white" cursor="pointer" />
       </div>
       {/* Mobile Footer */}
-      <div className="md:hidden fixed bottom-0 h-[6%] w-full flex justify-around bg-[black] py-2 rounded-t-2xl">
-        <Link to="/bookmark" className="flex flex-col items-center">
-          <BsFillBookmarkFill size={27} className="text-[25px]" color="white"/>
+      <div className="md:hidden fixed bottom-0 h-[6%] w-full flex justify-around bg-[black] py-1 rounded-t-2xl">
+        <Link to="/bookmark" className="flex flex-col items-center ">
+          <BsFillBookmarkFill size={30} className="text-[25px]" color="white"/>
           <p className="text-white text-[14px]">Saved</p>
         </Link>
         <Link to="/applied" className="flex flex-col items-center">
-          <AiOutlineFileDone size={50} color="white"/>
+          <AiOutlineFileDone size={30} color="white"/>
           <p className="text-white text-[14px]">Applied</p>
         </Link>
       </div>
