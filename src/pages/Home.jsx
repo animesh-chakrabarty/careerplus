@@ -4,7 +4,7 @@ import Tag from "../components/Tag";
 
 const Home = () => {
   return (
-    <div className=" py-2 px-4 max-md:px-0 h-[90%] max-md:h-[85%] overflow-hidden no-scrollbar bg-black">
+    <div className=" py-2 px-4 max-md:px-0 h-[90%]  overflow-hidden no-scrollbar bg-black">
       <p className="text-center text-5xl max-md:text-3xl max-md:hidden leading-[60px] font-[500] font-robotoSlab ">
         Uniting Jobs from <br />
         Every Major Portal <br className="md:hidden" />
