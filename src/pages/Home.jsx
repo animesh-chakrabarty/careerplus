@@ -31,8 +31,6 @@ const Home = () => {
           <li>BeeBee India</li>
           <li>CutShort</li>
           <li>SmartRecruiters</li>
-          <li>Shine</li>
-          <li>Mogul</li>
           <li className="font-[500] text-[18px] ">and many more...</li>
         </ul>
       </div>
