@@ -35,9 +35,6 @@ const Home = () => {
           <li>Mogul</li>
           <li className="font-[500] text-[18px] ">and many more...</li>
         </ul>
-        <div className="h-[700px] bg-black">
-
-        </div>
       </div>
     </div>
   );
