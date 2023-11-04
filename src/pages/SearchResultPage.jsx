@@ -11,7 +11,7 @@ const SearchResultPage = () => {
   const dispatch = useDispatch();
 
   const query = jobRole + " " + location;
-  const { data } = useFetchJobsQuery(query);
+  const { data, isLoading } = useFetchJobsQuery(query);
   //   console.log(data.data);
   data && dispatch(setJobList(data.data));
   //   console.log(searchTerm)
@@ -22,9 +22,13 @@ const SearchResultPage = () => {
         <SearchBox />
       </div>
       {/* 2.Bottom Div */}
-      <div className="h-[100%] ">
-        <SearchResult />
-      </div>
+      {isLoading ? (
+        <div className="text-center mt-5">Please hold on <br /> while we find <br /> the best jobs for you...</div>
+      ) : (
+        <div className="h-[100%] ">
+          <SearchResult />
+        </div>
+      )}
     </div>
   );
 };
