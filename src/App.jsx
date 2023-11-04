@@ -26,9 +26,9 @@ const App = () => {
       <div className="main">
         <div className="gradient" />
       </div>
-      <div className=" h-[92vh] px-[10%] max-xl:px-[5%] max-lg:px-[1%] max-md:px-[0%] overflow-hidden font-satoshi tracking-wide">
+      <div className=" h-[100vh] px-[10%] max-xl:px-[5%] max-lg:px-[1%] max-md:px-[0%] overflow-hidden font-satoshi tracking-wide">
         <Header />
-        <div className="h-full mx-[5%] max-xl:mx-[0%]  overflow-auto no-scrollbar ">
+        <div className="h-full mx-[5%] max-xl:mx-[0%]  overflow-hidden no-scrollbar ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/bookmark" element={<Bookmark />} />
