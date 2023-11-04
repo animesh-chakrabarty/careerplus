@@ -14,7 +14,7 @@ const Home = () => {
         </span>
       </p>
       <SearchBox />
-      <div className=" md:hidden text-[20px] text-center font-[600] mt-5 font-lato">
+      <div className=" md:hidden text-[20px] text-center font-[600] mt-3 font-lato">
         <p className="text-gray-600 ">
           Here at <span className="blaugrana_gradient">CareerPlus</span> ,{" "}
           <br />
