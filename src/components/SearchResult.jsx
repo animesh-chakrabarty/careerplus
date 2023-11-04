@@ -6,6 +6,7 @@ import JobDetails from "./JobDetails";
 
 const SearchResult = () => {
   let bookMarkedJobs = useSelector((state) => state.bookmarkedJobs.data);
+  let appliedJobs = useSelector((state) => state.appliedJobs.data);
   const jobList = useSelector((state) => state.jobList.data);
   console.log(jobList)
 
@@ -19,9 +20,12 @@ const SearchResult = () => {
           const isBookmarked = bookMarkedJobs.find(
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
           );
+          const isApplied = appliedJobs.find(
+            (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
+          );
           return (
             <div key={jobDetails?.job_id}>
-              <JobCard jobDetails={jobDetails} isBookmarked={isBookmarked} />
+              <JobCard jobDetails={jobDetails} isBookmarked={isBookmarked} isApplied={isApplied}/>
             </div>
           );
         })}

@@ -10,8 +10,9 @@ import BlueTag from "./Tag/BlueTag";
 import { useNavigate } from "react-router-dom";
 import GreyTag from "./Tag/GreyTag";
 import { setBookmark } from "../redux/BookmarkedJobSlice";
+import { setAppliedJobs } from "../redux/AppliedJobSlice";
 
-const JobCard = ({ jobDetails, isBookmarked }) => {
+const JobCard = ({ jobDetails, isBookmarked ,isApplied}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -91,6 +92,54 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
     console.log(JSON.parse(dataExists2));
   };
 
+  const handleAppliedClick = () => {
+    const dataExists = localStorage.getItem("careerPlus_applied");
+
+    if (dataExists) {
+      // If user has already bookmarked jobs before ->
+      // 1. If this job is already bookmarked then remove it from bookmark list
+      // 2. If it is not bookmarked , then add it to bookmark list
+      const temp = JSON.parse(dataExists);
+      let appliedJobs = temp?.appliedJobs;
+
+      if (isApplied) {
+        // If job is already bookmarked , remove it from listisBookmarked
+        let jobDetailsUpdated1 = appliedJobs.filter(
+          (jobDetailsTemp) => jobDetailsTemp.job_id !== jobDetails?.job_id
+        );
+        const updatedTemp1 = {
+          appliedJobs: jobDetailsUpdated1,
+        };
+        localStorage.setItem(
+          "careerPlus_applied",
+          JSON.stringify(updatedTemp1)
+        );
+      } else {
+        // If job is not bookmarked , add it to the list
+        let jobDetailsUpdated2 = [...appliedJobs, jobDetails];
+        const updatedTemp2 = {
+          appliedJobs: jobDetailsUpdated2,
+        };
+        localStorage.setItem(
+          "careerPlus_applied",
+          JSON.stringify(updatedTemp2)
+        );
+      }
+    } else {
+      const temp = {
+        appliedJobs: [jobDetails],
+      };
+      localStorage.setItem("careerPlus_applied", JSON.stringify(temp));
+    }
+
+    const dataExists2 = localStorage.getItem("careerPlus_applied");
+
+    console.log(JSON.parse(dataExists2));
+
+    dispatch(setAppliedJobs(JSON.parse(dataExists2)));
+    console.log(JSON.parse(dataExists2));
+  };
+
   return (
     <div
       className=" border-2 w-[100%] rounded-xl px-4 py-4 font-lato cursor-pointer"
@@ -111,7 +160,13 @@ const JobCard = ({ jobDetails, isBookmarked }) => {
               }}
               className={`${isBookmarked && "text-[#0071BD]"} `}
             />
-            <AiOutlineFileDone size={25} />
+            <AiOutlineFileDone size={25}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAppliedClick();
+            }}
+            className={`${isApplied && "text-[#0071BD]"} `}
+            />
           </div>
         </div>
         {/* 1.2.Company Logo & Name */}
