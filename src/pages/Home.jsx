@@ -14,7 +14,7 @@ const Home = () => {
         </span>
       </p>
       <SearchBox />
-      <div className=" md:hidden text-[21px] text-center font-[600] mt-5 font-lato">
+      <div className=" md:hidden text-[20px] text-center font-[600] mt-5 font-lato">
         <p className="text-gray-600 ">
           Here at <span className="blaugrana_gradient">CareerPlus</span> ,{" "}
           <br />
@@ -31,6 +31,8 @@ const Home = () => {
           <li>BeeBee India</li>
           <li>CutShort</li>
           <li>SmartRecruiters</li>
+          <li>Shine</li>
+          <li>Mogul</li>
           <li className="font-[500] text-[18px] ">and many more...</li>
         </ul>
       </div>
