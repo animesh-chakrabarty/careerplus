@@ -1,5 +1,6 @@
 import SearchBox from "../components/SearchBox";
 import SearchResult from "../components/SearchResult";
+import Tag from "../components/Tag";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
         </span>
       </p>
       <SearchBox />
-      <div className="text-[20px] text-center font-[600] mt-5 font-lato">
+      <div className=" md:hidden text-[21px] text-center font-[600] mt-5 font-lato">
         <p className="text-gray-600 ">
           Here at <span className="blaugrana_gradient">CareerPlus</span> ,{" "}
           <br />
@@ -22,6 +23,7 @@ const Home = () => {
         <ul className="mt-2">
           <li>Linkedln</li>
           <li>Indeed</li>
+          <li>InternShala</li>
           <li>InstaHyre</li>
           <li>WellFound</li>
           <li>SimplyHired</li>
@@ -32,10 +34,8 @@ const Home = () => {
           <li>Shine</li>
           <li>Mogul</li>
           <li className="font-[500] text-[18px] ">and many more...</li>
-          <li></li>
         </ul>
       </div>
-      {/* <SearchResult /> */}
     </div>
   );
 };
