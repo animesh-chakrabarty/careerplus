@@ -28,7 +28,7 @@ const App = () => {
       </div>
       <div className=" h-[100vh] box-border px-[10%] max-xl:px-[5%] max-lg:px-[1%] max-md:px-[0%] overflow-hidden font-satoshi tracking-wide">
         <Header />
-        <div className="h-full mx-[5%] max-xl:mx-[0%]  overflow-hidden no-scrollbar ">
+        <div className="h-[95%] mx-[5%] max-xl:mx-[0%]  overflow-hidden no-scrollbar ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/bookmark" element={<Bookmark />} />
