@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setBookmark } from "./redux/BookmarkedJobSlice";
 import SearchResultPage from "./pages/SearchResultPage";
+import { setAppliedJobs } from "./redux/AppliedJobSlice";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,11 @@ const App = () => {
   useEffect(() => {
     const bookmarkedJobs = localStorage.getItem("careerPlus_bookmarked");
 
+    const appliedJobs = localStorage.getItem("careerPlus_applied");
+
     bookmarkedJobs && dispatch(setBookmark(JSON.parse(bookmarkedJobs)));
+
+    appliedJobs && dispatch(setAppliedJobs(JSON.parse(appliedJobs)));
   }, []);
 
   return (

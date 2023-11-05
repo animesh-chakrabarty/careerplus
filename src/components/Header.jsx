@@ -1,16 +1,32 @@
 import logo from "../assets/logo.png";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { AiOutlineFileDone } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { SiGithub } from "react-icons/si";
 
 const Header = () => {
+  const location = useLocation();
+  console.log(location.pathname);
+
   return (
     <div className="h-[6%] max-md:h-[6%] flex items-center justify-between px-4  border-b mt-1 ">
       <Link to="/" className="h-full pb-2">
         <img src={logo} alt="" className="h-[100%]" />
       </Link>
+      {/* Saved Desktop Title */}
+      {location.pathname == "/bookmark" && (
+        <p className="text-2xl font-bold font-robotoSlab text-gray-900 max-lg:hidden">
+          Saved Jobs
+        </p>
+      )}
+
+      {/* Applied Desktop Title */}
+      {location.pathname == "/applied" && (
+        <p className="text-2xl font-bold font-robotoSlab text-gray-900 max-lg:hidden">
+          Applied Jobs
+        </p>
+      )}
       {/* Saved & Applied section for md and above */}
       <div className="flex items-center gap-10 mx-5 max-md:hidden">
         <Link to="/bookmark" className="flex flex-col items-center">
