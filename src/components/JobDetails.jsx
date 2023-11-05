@@ -64,7 +64,7 @@ const JobDetails = () => {
             )}
           </div>
           <div onClick={handleJobApplyClick} className="cursor-pointer">
-            <BlueTag tagTitle={"Apply Now"}  />
+            <BlueTag tagTitle={"Apply Now"} />
           </div>
         </div>
       </div>
@@ -109,15 +109,46 @@ const JobDetails = () => {
           </div>
         )}
         {/* 2.5. Education */}
-        {jobDetails?.job_required_education?.degree_mentioned && (
-          <div>
-            <span>Education : </span>
+        {/* {jobDetails?.job_required_education?.degree_mentioned && (
+          <div className="opacity-70 text-[16px]">
+            <span className="font-[600] text-[17px]">Education : </span>
             <span>{}</span>
           </div>
-        )}
+        )} */}
         {/* 2.6. Estimated salary */}
+        {jobDetails?.job_min_salary && jobDetails?.job_max_salary && (
+          <div className="opacity-70 text-[16px]">
+            <span className="font-[600] text-[17px]">Estimated Salary : </span>
+            <span>
+              {jobDetails?.job_min_salary +
+                "- " +
+                jobDetails?.job_max_salary +
+                "" +
+                jobDetails?.job_salary_currency +
+                "/" +
+                jobDetails?.job_salary_period}
+            </span>
+          </div>
+        )}
 
         {/* 2.7. Apply Link */}
+        {jobDetails?.apply_options && (
+          <div className="flex flex-col gap-2">
+            <span className="opacity-70 font-[600] text-[17px]">Apply On :</span>
+            <div className="flex flex-wrap gap-2 ">
+              {jobDetails?.apply_options?.map((apply_option, i) => {
+                const handleApplyClick = () => {
+                  window.open(apply_option?.apply_link);
+                };
+                return (
+                  <div key={i} onClick={handleApplyClick} className="cursor-pointer">
+                    <GreyTag tagTitle={apply_option?.publisher} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
