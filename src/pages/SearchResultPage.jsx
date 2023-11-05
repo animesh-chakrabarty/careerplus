@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBox from "../components/SearchBox";
 import SearchResult from "../components/SearchResult";
 import { useParams } from "react-router-dom";
@@ -11,7 +10,9 @@ const SearchResultPage = () => {
   const dispatch = useDispatch();
 
   const query = jobRole + " " + location;
-  const { data, isLoading } = useFetchJobsQuery(query);
+  console.log(query);
+  const { data, isFetching } = useFetchJobsQuery(query);
+  console.log(isFetching)
   //   console.log(data.data);
   data && dispatch(setJobList(data.data));
   //   console.log(searchTerm)
@@ -22,8 +23,10 @@ const SearchResultPage = () => {
         <SearchBox />
       </div>
       {/* 2.Bottom Div */}
-      {isLoading ? (
-        <div className="text-center mt-5">Please hold on <br /> while we find <br /> the best jobs for you...</div>
+      {isFetching ? (
+        <div className="text-center mt-5">
+          Please hold on <br /> while we find <br /> the best jobs for you...
+        </div>
       ) : (
         <div className="h-[100%] ">
           <SearchResult />

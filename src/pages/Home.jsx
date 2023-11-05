@@ -5,7 +5,7 @@ import Tag from "../components/Tag";
 const Home = () => {
   return (
     <div className=" py-2 px-4 max-md:px-0 h-[90%]  overflow-hidden no-scrollbar ">
-      <p className="text-center text-5xl max-md:text-3xl max-md:hidden leading-[60px] font-[500] font-robotoSlab ">
+      <p className="text-center text-5xl max-md:text-3xl leading-[60px] font-[500] font-robotoSlab ">
         Uniting Jobs from <br />
         Every Major Portal <br className="md:hidden" />
         for You with <br />
@@ -14,7 +14,7 @@ const Home = () => {
         </span>
       </p>
       <SearchBox />
-      <div className=" md:hidden text-[20px] text-center font-[600] mt-3 font-lato">
+      {/* <div className=" md:hidden text-[20px] text-center font-[600] mt-3 font-lato">
         <p className="text-gray-600 ">
           Here at <span className="blaugrana_gradient">CareerPlus</span> ,{" "}
           <br />
@@ -35,7 +35,7 @@ const Home = () => {
           <li>Mogul</li>
           <li className="font-[500] text-[18px] ">and many more...</li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };
