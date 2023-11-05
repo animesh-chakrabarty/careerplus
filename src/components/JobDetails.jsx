@@ -23,7 +23,7 @@ const JobDetails = () => {
   };
 
   return (
-    <div className="w-full border-2 py-3 px-4 rounded-xl font-lato">
+    <div className="w-full border py-3 px-4 rounded-xl font-lato">
       {/* 1. Head */}
       <div className="w-full flex flex-col gap-3 mb-3">
         {/* 1.1. Job Title */}

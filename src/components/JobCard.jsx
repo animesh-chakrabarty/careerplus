@@ -38,7 +38,7 @@ const JobCard = ({ jobDetails, isBookmarked ,isApplied}) => {
   const handleClick = () => {
     dispatch(setJobdetails(jobDetails));
     const windowWidth = window.innerWidth;
-    windowWidth < 768 && navigate(`/jobDetails/${jobDetails?.job_id}`);
+    windowWidth < 1024 && navigate(`/jobDetails/${jobDetails?.job_id}`);
   };
 
   // const dataExists34 = localStorage.getItem("careerPlus_bookmarked");

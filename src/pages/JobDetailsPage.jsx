@@ -18,8 +18,12 @@ const JobDetailsPage = () => {
   });
   // console.log(linesArray);
 
+  const handleJobApplyClick = () => {
+    window.open(jobDetails?.apply_options[0]?.apply_link);
+  };
+
   return (
-    <div className="w-full border-2 py-3 px-4 rounded-xl font-lato mt-1 h-[90%] overflow-auto no-scrollbar">
+    <div className="w-full border py-3 px-4 rounded-xl font-lato mt-1 h-[90%] overflow-auto no-scrollbar">
       {/* 1. Head */}
       <div className="w-full flex flex-col gap-3 mb-3">
         {/* 1.1. Job Title */}
@@ -59,8 +63,8 @@ const JobDetailsPage = () => {
               </div>
             )}
           </div>
-          <div>
-            <BlueTag tagTitle={jobDetails?.job_publisher} />
+          <div onClick={handleJobApplyClick} className="cursor-pointer">
+            <BlueTag tagTitle={"Apply Now"}  />
           </div>
         </div>
       </div>
