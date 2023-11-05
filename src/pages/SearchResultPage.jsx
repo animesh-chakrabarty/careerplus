@@ -4,17 +4,23 @@ import { useParams } from "react-router-dom";
 import { useFetchJobsQuery } from "../redux/JSearchAPI";
 import { useDispatch } from "react-redux";
 import { setJobList } from "../redux/JobListSlice";
+import { useEffect } from "react";
+import { setJobdetails } from "../redux/JobDetailsSlice";
 
 const SearchResultPage = () => {
   const { jobRole, location } = useParams();
   const dispatch = useDispatch();
 
-  console.log(jobRole , location)
+  useEffect(() => {
+    dispatch(setJobdetails({}));
+  }, []);
+
+  console.log(jobRole, location);
 
   const query = jobRole + " " + location;
   console.log(query);
   const { data, isFetching } = useFetchJobsQuery(query);
-  console.log(isFetching)
+  console.log(isFetching);
   //   console.log(data.data);
   data && dispatch(setJobList(data.data));
   //   console.log(searchTerm)
@@ -22,7 +28,7 @@ const SearchResultPage = () => {
     <div className="max-md:h-[87%] h-[90%] overflow-auto no-scrollbar">
       {/* 1.Top Div */}
       <div>
-        <SearchBox jobRole={jobRole} location={location}/>
+        <SearchBox jobRole={jobRole} location={location} />
       </div>
       {/* 2.Bottom Div */}
       {isFetching ? (
