@@ -7,7 +7,7 @@ import { SiGithub } from "react-icons/si";
 
 const Header = () => {
   return (
-    <div className="h-[6%] max-md:h-[6%] flex items-center justify-between px-4  border-b-2 mt-1 ">
+    <div className="h-[6%] max-md:h-[6%] flex items-center justify-between px-4  border-b mt-1 ">
       <Link to="/" className="h-full pb-2">
         <img src={logo} alt="" className="h-[100%]" />
       </Link>
@@ -30,7 +30,7 @@ const Header = () => {
               "https://github.com/Animesh-Chakrabarty/Project-Job-Search-Portal"
             );
           }}
-          size={27}
+          size={30}
         />
       </div>
     </div>

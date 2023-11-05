@@ -40,14 +40,14 @@ const SearchBox = () => {
             value={jobRole}
             onChange={(e) => setJobRole(e.target.value)}
             placeholder="Job Title , Keyword..."
-            className="px-10 py-2 rounded-xl outline-none border-2 max-md:w-full"
+            className="px-10 py-2 rounded-xl outline-none border max-md:w-full"
           />
           <input
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="Location..."
-            className="px-10 py-2 rounded-xl outline-none border-2"
+            className="px-10 py-2 rounded-xl outline-none border"
           />
         </div>
         <button className="bg-[#0071BD] px-4 py-2 rounded-xl text-white font-[600] text-[20px] max-md:text-[16px]">

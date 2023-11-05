@@ -142,7 +142,7 @@ const JobCard = ({ jobDetails, isBookmarked ,isApplied}) => {
 
   return (
     <div
-      className=" border-2 w-[100%] rounded-xl px-4 py-4 font-lato cursor-pointer"
+      className=" border w-[100%] rounded-xl px-4 py-4 font-lato cursor-pointer"
       onClick={handleClick}
     >
       {/* 1.Head */}
