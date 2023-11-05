@@ -7,8 +7,8 @@ import { SiGithub } from "react-icons/si";
 
 const Header = () => {
   return (
-    <div className="h-[6%] max-md:h-[5%] flex items-center justify-between px-4 border-b-2 mt-1 ">
-      <Link to="/" className="h-full pb-1">
+    <div className="h-[6%] max-md:h-[6%] flex items-center justify-between px-4  border-b-2 mt-1 ">
+      <Link to="/" className="h-full pb-2">
         <img src={logo} alt="" className="h-[100%]" />
       </Link>
       {/* Saved & Applied section for md and above */}
