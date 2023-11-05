@@ -23,9 +23,9 @@ const JobDetailsPage = () => {
   };
 
   return (
-    <div className="w-full border py-3 px-4 rounded-xl font-lato mt-1 h-[90%] overflow-auto no-scrollbar">
+    <div className="w-full border py-3 px-4  rounded-xl font-lato mt-1 h-[86%] overflow-auto no-scrollbar">
       {/* 1. Head */}
-      <div className="w-full flex flex-col gap-3 mb-3">
+      <div className="w-full flex flex-col gap-1 mb-3">
         {/* 1.1. Job Title */}
         <p className="font-extrabold text-[20px] opacity-75">
           {jobDetails?.job_title}
@@ -90,7 +90,7 @@ const JobDetailsPage = () => {
         )}
         {/* 2.3. JD */}
         {jobDetails?.job_description && (
-          <div className="opacity-70 text-[16px]">
+          <div className="opacity-70 text-[15px]">
             <p className="font-[600] text-[17px]">Job Description : </p>
             {linesArray?.map((line, i) => (
               <p key={i}>{line}</p>
