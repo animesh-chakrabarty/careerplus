@@ -9,6 +9,8 @@ const SearchResultPage = () => {
   const { jobRole, location } = useParams();
   const dispatch = useDispatch();
 
+  console.log(jobRole , location)
+
   const query = jobRole + " " + location;
   console.log(query);
   const { data, isFetching } = useFetchJobsQuery(query);
@@ -20,7 +22,7 @@ const SearchResultPage = () => {
     <div className="max-md:h-[87%] h-[90%] overflow-auto no-scrollbar">
       {/* 1.Top Div */}
       <div>
-        <SearchBox />
+        <SearchBox jobRole={jobRole} location={location}/>
       </div>
       {/* 2.Bottom Div */}
       {isFetching ? (

@@ -7,10 +7,10 @@ import JobListReducer from "./JobListSlice";
 
 const store = configureStore({
   reducer: {
-    jobDetails: JobDetailsReducer,
-    bookmarkedJobs: BookmarksReducer,
-    appliedJobs:AppliedJobsReducer,
     [JSearchAPI.reducerPath]: JSearchAPI.reducer,
+    bookmarkedJobs: BookmarksReducer,
+    appliedJobs: AppliedJobsReducer,
+    jobDetails: JobDetailsReducer,
     jobList: JobListReducer,
   },
   middleware: (getDefaultMiddleware) =>
