@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiKey = "d9876a4f76msh10ba7255fb01747p131df4jsn451e1887aa18";
+const apiKey = "7f78384275msh3e1b33fcf8c3353p18d011jsn5fc80b4c10b4";
 
 const JSearchAPIBaseQuery = fetchBaseQuery({
   baseUrl: "https://jsearch.p.rapidapi.com/",
@@ -15,11 +15,11 @@ const JSearchAPI = createApi({
   baseQuery: JSearchAPIBaseQuery,
   endpoints: (builder) => ({
     fetchJobs: builder.query({
-      query: (jobRole) => `search?query=${jobRole}&page=1&num_pages=4`,
+      query: ({jobRole,num_pages}) => `search?query=${jobRole}&page=${num_pages}&num_pages=1`,
     }),
   }),
 });
 
-export const { useFetchJobsQuery } = JSearchAPI;
+export const { useFetchJobsQuery ,useLazyFetchJobsQuery } = JSearchAPI;
 
 export default JSearchAPI;

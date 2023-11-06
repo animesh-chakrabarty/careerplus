@@ -7,7 +7,7 @@ import { SiGithub } from "react-icons/si";
 
 const Header = () => {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   return (
     <div className="h-[6%] max-md:h-[6%] flex items-center justify-between px-4  border-b mt-1 ">

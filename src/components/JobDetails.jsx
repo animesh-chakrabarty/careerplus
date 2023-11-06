@@ -6,7 +6,7 @@ import GreyTag from "./Tag/GreyTag";
 
 const JobDetails = () => {
   const jobDetails = useSelector((state) => state.jobDetails.data);
-  console.log(jobDetails);
+  // console.log(jobDetails);
   const handleClick = () => {
     jobDetails?.employer_website && window.open(jobDetails?.employer_website);
   };

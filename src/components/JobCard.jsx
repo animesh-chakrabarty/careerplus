@@ -16,7 +16,7 @@ const JobCard = ({ jobDetails, isBookmarked ,isApplied}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-  console.log(jobDetails)
+  // console.log(jobDetails)
 
   // console.log(jobDetails);
 

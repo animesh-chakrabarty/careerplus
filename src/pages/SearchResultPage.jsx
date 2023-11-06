@@ -18,12 +18,13 @@ const SearchResultPage = () => {
   console.log(jobRole, location);
 
   const query = jobRole + " " + location;
-  console.log(query);
-  const { data, isFetching } = useFetchJobsQuery(query);
-  console.log(isFetching);
-  //   console.log(data.data);
+  // console.log(query);
+  const { data, isFetching } = useFetchJobsQuery({
+    jobRole:query,
+    num_pages:1,
+  });
+  // console.log(isFetching);
   data && dispatch(setJobList(data.data));
-  //   console.log(searchTerm)
   return (
     <div className="max-md:h-[87%] h-[90%] overflow-auto no-scrollbar">
       {/* 1.Top Div */}
@@ -37,7 +38,7 @@ const SearchResultPage = () => {
         </div>
       ) : (
         <div className="h-[100%] ">
-          <SearchResult />
+          <SearchResult query={query}/>
         </div>
       )}
     </div>
