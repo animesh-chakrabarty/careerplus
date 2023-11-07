@@ -38,7 +38,7 @@ const SearchResultPage = () => {
         </div>
       ) : (
         <div className="h-[100%]">
-          <SearchResult query={query}/>
+          <SearchResult />
         </div>
       )}
     </div>
