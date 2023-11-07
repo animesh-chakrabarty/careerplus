@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchBox = ({ jobRole, location }) => {
   const navigate = useNavigate();
   const [jobRoleState, setJobRoleState] = useState(jobRole);
   const [locationState, setLocationState] = useState(location);
+  const routeLocation = useLocation();
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const SearchBox = ({ jobRole, location }) => {
     <div className="py-4">
       <form
         action="submit"
-        className="flex flex-col  items-center "
+        className="flex flex-col  items-center mb-2"
         onSubmit={HandleSubmit}
       >
         <div className="flex justify-center gap-4 mb-3 max-md:flex-col max-md:w-[70%] max-md:gap-2 ">
@@ -38,6 +39,9 @@ const SearchBox = ({ jobRole, location }) => {
           Find Job
         </button>
       </form>
+      <hr
+        className={`${routeLocation.pathname == "/" && "hidden"} max-md:hidden`}
+      />
     </div>
   );
 };

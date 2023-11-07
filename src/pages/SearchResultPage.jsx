@@ -37,7 +37,7 @@ const SearchResultPage = () => {
           Please hold on <br /> while we find <br /> the best jobs for you...
         </div>
       ) : (
-        <div className="h-[100%] ">
+        <div className="h-[100%]">
           <SearchResult query={query}/>
         </div>
       )}

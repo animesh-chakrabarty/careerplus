@@ -28,7 +28,7 @@ const SearchResult = ({ query }) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "dcd2bcd14emshff3e79ab3b1fcdcp14b8b5jsn9959db0a0934",
+        "X-RapidAPI-Key": "eb64a9701fmshbdc386a5b78f628p13fb55jsn6ed1f2061ad6",
         "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
       },
     };
