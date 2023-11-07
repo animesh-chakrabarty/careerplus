@@ -28,7 +28,7 @@ const SearchResult = ({ query }) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "7f78384275msh3e1b33fcf8c3353p18d011jsn5fc80b4c10b4",
+        "X-RapidAPI-Key": "dcd2bcd14emshff3e79ab3b1fcdcp14b8b5jsn9959db0a0934",
         "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
       },
     };
@@ -70,9 +70,9 @@ const SearchResult = ({ query }) => {
     if (divRef.current) {
       divRef.current.addEventListener("scroll", handleScroll);
 
-      return () => {
-        divRef.current.removeEventListener("scroll", handleScroll);
-      };
+      // return () => {
+      //   divRef.current.removeEventListener("scroll", handleScroll);
+      // };
     }
   }, []);
 
