@@ -22,7 +22,7 @@ const SearchBox = ({ jobRole, location }) => {
     console.log(value);
     if (value) {
       var tempArr = jobRoleSuggestionData.filter((item, i) => {
-        return item.jobRole.toLowerCase().includes(value.toLowerCase());
+        return item.jobRole.toLowerCase().startsWith(value.toLowerCase());
       });
     }
     // console.log(tempArr)
@@ -35,7 +35,7 @@ const SearchBox = ({ jobRole, location }) => {
     console.log(value);
     if (value) {
       var tempArr1 = locationSuggestionData.filter((item, i) => {
-        return item.city.toLowerCase().includes(value.toLowerCase());
+        return item.city.toLowerCase().startsWith(value.toLowerCase());
       });
     }
     // console.log(tempArr)
