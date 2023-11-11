@@ -67,7 +67,7 @@ const SearchBox = ({ jobRole, location }) => {
             {/* KeyWord Suggestion */}
             {filteredJobRoleData?.length > 0 && (
               <div
-                className={`searchResult bg-gray-100 border-gray-200 border absolute mt-2 w-full  px-2 flex flex-col gap-2 py-2 z-10`}
+                className={`searchResult bg-gray-100 border-gray-200 border absolute mt-2 w-full  px-2 flex flex-col gap-2 py-2 z-10 max-h-[250px] overflow-auto no-scrollbar`}
               >
                 {filteredJobRoleData.map((item, i) => (
                   <div
