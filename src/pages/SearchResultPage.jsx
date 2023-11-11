@@ -21,7 +21,7 @@ const SearchResultPage = () => {
   // console.log(query);
   const { data, isFetching } = useFetchJobsQuery({
     jobRole:query,
-    num_pages:1,
+    page:1,
   });
   // console.log(isFetching);
   data && dispatch(setJobList(data.data));
@@ -38,7 +38,7 @@ const SearchResultPage = () => {
         </div>
       ) : (
         <div className="h-[100%]">
-          <SearchResult />
+          <SearchResult query={query}/>
         </div>
       )}
     </div>

@@ -1,22 +1,42 @@
 import JobCard from "./JobCard";
 
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import JobDetails from "./JobDetails";
+import { useEffect, useState } from "react";
+import { useLazyFetchJobsQuery } from "../redux/JSearchAPI";
+import { setMoreJobs } from "../redux/JobListSlice";
 
-const SearchResult = () => {
+const SearchResult = ({ query }) => {
+  const dispatch = useDispatch();
   let bookMarkedJobs = useSelector((state) => state.bookmarkedJobs.data);
   let appliedJobs = useSelector((state) => state.appliedJobs.data);
   const jobList = useSelector((state) => state.jobList.data);
+  const [pageNo, setPageNo] = useState(2);
 
+  const [triggerFunction, { data: res, isFetching }] = useLazyFetchJobsQuery();
 
+  console.log(isFetching);
+
+  useEffect(() => {
+    if (!isFetching && res) {
+      dispatch(setMoreJobs(res?.data));
+    }
+  }, [isFetching, res, dispatch]);
+
+  const loadMoreJobs = () => {
+    console.log("load more jobs");
+    setPageNo((prev) => prev + 1);
+    triggerFunction({
+      jobRole: query,
+      page: pageNo,
+    });
+  };
 
   return (
     <div className="flex h-full md:overflow-auto no-scrollbar ">
       {/* left */}
-      <div
-        className="searchResultLeft w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 md:overflow-auto no-scrollbar flex flex-col gap-3 "
-      >
-        {jobList?.map((jobDetails) => {
+      <div className="searchResultLeft w-[35%] max-xl:w-[45%] max-lg:w-full h-full px-2 md:overflow-auto no-scrollbar flex flex-col gap-3 ">
+        {jobList?.map((jobDetails, i) => {
           const isBookmarked = bookMarkedJobs.find(
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
           );
@@ -24,7 +44,7 @@ const SearchResult = () => {
             (jobDetailsTemp) => jobDetailsTemp?.job_id === jobDetails?.job_id
           );
           return (
-            <div key={jobDetails?.job_id}>
+            <div key={i}>
               <JobCard
                 jobDetails={jobDetails}
                 isBookmarked={isBookmarked}
@@ -33,6 +53,17 @@ const SearchResult = () => {
             </div>
           );
         })}
+
+        {isFetching ? (
+          <div>Loading...</div>
+        ) : (
+          <div
+            className="w-full bg-[#0071BD] text-center font-[16px] text-white cursor-pointer py-[2px]"
+            onClick={loadMoreJobs}
+          >
+            Load more Jobs...
+          </div>
+        )}
       </div>
       {/* right */}
       <div className="w-[60%]  max-xl:w-[50%] max-lg:hidden h-full  overflow-auto no-scrollbar">

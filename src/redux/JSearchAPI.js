@@ -15,7 +15,7 @@ const JSearchAPI = createApi({
   baseQuery: JSearchAPIBaseQuery,
   endpoints: (builder) => ({
     fetchJobs: builder.query({
-      query: ({jobRole,num_pages}) => `search?query=${jobRole}&page=${num_pages}&num_pages=1`,
+      query: ({jobRole,page}) => `search?query=${jobRole}&page=${page}&num_pages=1`,
     }),
   }),
 });
