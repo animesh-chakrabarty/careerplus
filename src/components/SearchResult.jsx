@@ -1,4 +1,5 @@
 import JobCard from "./JobCard";
+import loader  from "../assets/loader.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import JobDetails from "./JobDetails";
@@ -55,13 +56,16 @@ const SearchResult = ({ query }) => {
         })}
 
         {isFetching ? (
-          <div>Loading...</div>
+          <div className="flex items-center justify-center">
+            <img src={loader} alt="" className="h-12"/>
+            <span>Loading...</span>
+          </div>
         ) : (
           <div
             className="w-full bg-[#0071BD] text-center font-[16px] text-white cursor-pointer py-[2px]"
             onClick={loadMoreJobs}
           >
-            Load more Jobs...
+            Load more Jobs
           </div>
         )}
       </div>

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setJobList } from "../redux/JobListSlice";
 import { useEffect } from "react";
 import { setJobdetails } from "../redux/JobDetailsSlice";
+import loader  from "../assets/loader.svg";
 
 const SearchResultPage = () => {
   const { jobRole, location } = useParams();
@@ -33,7 +34,8 @@ const SearchResultPage = () => {
       </div>
       {/* 2.Bottom Div */}
       {isFetching ? (
-        <div className="text-center mt-5">
+        <div className="text-center mt-5 flex flex-col ">
+          <img src={loader} alt="" className="h-20"/>
           Please hold on <br /> while we find <br /> the best jobs for you...
         </div>
       ) : (
