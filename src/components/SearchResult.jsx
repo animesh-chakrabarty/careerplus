@@ -1,5 +1,5 @@
 import JobCard from "./JobCard";
-import loader  from "../assets/loader.svg";
+import loader from "../assets/loader.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import JobDetails from "./JobDetails";
@@ -14,7 +14,8 @@ const SearchResult = ({ query }) => {
   const jobList = useSelector((state) => state.jobList.data);
   const [pageNo, setPageNo] = useState(2);
 
-  const [triggerFunction, { data: res, isFetching }] = useLazyFetchJobsQuery();
+  const [triggerFunction, { data: res, isFetching, isError, error }] =
+    useLazyFetchJobsQuery();
 
   console.log(isFetching);
 
@@ -57,9 +58,11 @@ const SearchResult = ({ query }) => {
 
         {isFetching ? (
           <div className="flex items-center justify-center">
-            <img src={loader} alt="" className="h-12"/>
+            <img src={loader} alt="" className="h-12" />
             <span>Loading...</span>
           </div>
+        ) : !isFetching && isError ? (
+          <div className="text-red-500 text-center ">Something Went Wrong</div>
         ) : (
           <div
             className="w-full bg-[#0071BD] text-center font-[16px] text-white cursor-pointer py-[2px]"

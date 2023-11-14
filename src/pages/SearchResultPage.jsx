@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setJobList } from "../redux/JobListSlice";
 import { useEffect } from "react";
 import { setJobdetails } from "../redux/JobDetailsSlice";
-import loader  from "../assets/loader.svg";
+import loader from "../assets/loader.svg";
 
 const SearchResultPage = () => {
   const { jobRole, location } = useParams();
@@ -20,9 +20,9 @@ const SearchResultPage = () => {
 
   const query = jobRole + " " + location;
   // console.log(query);
-  const { data, isFetching } = useFetchJobsQuery({
-    jobRole:query,
-    page:1,
+  const { data, isFetching, isError, error } = useFetchJobsQuery({
+    jobRole: query,
+    page: 1,
   });
   // console.log(isFetching);
   data && dispatch(setJobList(data.data));
@@ -35,12 +35,14 @@ const SearchResultPage = () => {
       {/* 2.Bottom Div */}
       {isFetching ? (
         <div className="text-center mt-5 flex flex-col ">
-          <img src={loader} alt="" className="h-20"/>
+          <img src={loader} alt="" className="h-20" />
           Please hold on <br /> while we find <br /> the best jobs for you...
         </div>
+      ) : !isFetching && isError ? (
+        <div className="text-red-500 text-center ">Something Went Wrong</div>
       ) : (
         <div className="h-[100%]">
-          <SearchResult query={query}/>
+          <SearchResult query={query} />
         </div>
       )}
     </div>
