@@ -5,15 +5,24 @@ import JobDetails from "../components/JobDetails";
 
 const Applied = () => {
   const appliedJobs = useSelector((state) => state.appliedJobs.data);
+  const bookmark = useSelector((state) => state.bookmarkedJobs.data);
   console.log(appliedJobs);
   return (
     <div className="flex h-[86%] lg:h-[89%] mt-2 overflow-auto no-scrollbar ">
       {/* left */}
       <div className=" w-[35%] max-xl:w-[45%] max-md:w-full h-full px-2 overflow-auto no-scrollbar flex flex-col gap-3  ">
         {appliedJobs.map((jobDetails) => {
+          const isBookmarked = bookmark.find(
+            (bookmarkedJobDetails) =>
+              bookmarkedJobDetails.job_id === jobDetails.job_id
+          );
           return (
             <div key={jobDetails?.jobDetails?.job_id}>
-              <JobCard jobDetails={jobDetails} isApplied={true}/>
+              <JobCard
+                jobDetails={jobDetails}
+                isApplied={true}
+                isBookmarked={isBookmarked}
+              />
             </div>
           );
         })}
