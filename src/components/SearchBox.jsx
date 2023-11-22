@@ -38,7 +38,6 @@ const SearchBox = ({ jobRole, location }) => {
         return item.city.toLowerCase().startsWith(value.toLowerCase());
       });
     }
-    // console.log(tempArr)
     setFilteredLocationData(tempArr1);
   };
 
