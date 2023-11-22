@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiKey = "eb64a9701fmshbdc386a5b78f628p13fb55jsn6ed1f2061ad6";
+const apiKey = "2f0f149863msh54ae8c98947e720p1ffdbcjsnfb009800ef66";
 
 const JSearchAPIBaseQuery = fetchBaseQuery({
   baseUrl: "https://jsearch.p.rapidapi.com/",
