@@ -5,7 +5,7 @@ import { AiOutlineFileDone } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex justify-center w-full">
       <div className="bg-black text-white h-[3%] w-[80%] max-xl:w-[90%] max-lg:w-full fixed bottom-0 flex items-center justify-between px-5 py-2 rounded-t-xl m-auto max-md:hidden">
         <p>
           Made by {" "}
@@ -24,7 +24,7 @@ const Footer = () => {
           cursor="pointer"
           onClick={() => {
             window.open(
-              "https://github.com/Animesh-Chakrabarty/Project-Job-Search-Portal"
+              "https://github.com/animesh-chakrabarty/careerplus"
             );
           }}
         />

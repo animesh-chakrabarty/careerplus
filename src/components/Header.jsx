@@ -15,14 +15,14 @@ const Header = () => {
       </Link>
       {/* Saved Desktop Title */}
       {location.pathname == "/bookmark" && (
-        <p className="text-2xl font-bold font-robotoSlab text-gray-900 max-lg:hidden">
+        <p className="text-2xl font-bold text-gray-900 font-robotoSlab max-lg:hidden">
           Saved Jobs
         </p>
       )}
 
       {/* Applied Desktop Title */}
       {location.pathname == "/applied" && (
-        <p className="text-2xl font-bold font-robotoSlab text-gray-900 max-lg:hidden">
+        <p className="text-2xl font-bold text-gray-900 font-robotoSlab max-lg:hidden">
           Applied Jobs
         </p>
       )}
@@ -42,7 +42,7 @@ const Header = () => {
         <SiGithub
           onClick={() => {
             window.open(
-              "https://github.com/Animesh-Chakrabarty/Project-Job-Search-Portal"
+              "https://github.com/animesh-chakrabarty/careerplus"
             );
           }}
           size={30}
