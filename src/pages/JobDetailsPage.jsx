@@ -36,10 +36,9 @@ const JobDetailsPage = () => {
             <img src={jobDetails?.employer_logo} alt="" className="w-[8%]" />
           )}
           <p
-            className={`font-[500] text-[16px] ${
-              jobDetails?.employer_website &&
+            className={`font-[500] text-[16px] ${jobDetails?.employer_website &&
               "underline cursor-pointer text-blue-600 "
-            }`}
+              }`}
             onClick={handleClick}
           >
             {jobDetails?.employer_name}
@@ -52,19 +51,19 @@ const JobDetailsPage = () => {
               jobDetails?.job_is_remote ||
               jobDetails?.job_state ||
               jobDetails?.job_country) && (
-              <div className="flex items-center gap-1 text-[17px] opacity-75">
-                <TbLocationFilled />
-                <p>
-                  {jobDetails.job_is_remote && "Remote  "}
-                  {jobDetails?.job_city ||
-                    jobDetails?.job_state ||
-                    jobDetails?.job_country}
-                </p>
-              </div>
-            )}
+                <div className="flex items-center gap-1 text-[17px] opacity-75">
+                  <TbLocationFilled />
+                  <p>
+                    {jobDetails.job_is_remote && "Remote  "}
+                    {jobDetails?.job_city ||
+                      jobDetails?.job_state ||
+                      jobDetails?.job_country}
+                  </p>
+                </div>
+              )}
           </div>
           <div onClick={handleJobApplyClick} className="cursor-pointer">
-            <BlueTag tagTitle={"Apply Now"}  />
+            <BlueTag tagTitle={"Apply Now"} />
           </div>
         </div>
       </div>
@@ -112,7 +111,7 @@ const JobDetailsPage = () => {
         {jobDetails?.job_required_education?.degree_mentioned && (
           <div>
             <span>Education : </span>
-            <span>{}</span>
+            <span>{ }</span>
           </div>
         )}
         {/* 2.6. Estimated salary */}
